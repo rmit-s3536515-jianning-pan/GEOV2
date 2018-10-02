@@ -23,6 +23,18 @@ public class TrackingSource extends AsyncTask<Void,Void,Void> {
         return mDatabase.delete(TrackingTable.TABLE_TRACKING, "id = ?",new String[]{id});
     }
 
+    public boolean updateTracking(String id,String title,String startTime,String endTime ,String meetTime){
+        ContentValues data = new ContentValues();
+        data.put(TrackingTable.COLUMN_TITLE,title);
+        data.put(TrackingTable.COLUMN_TARGET_START_TIME,startTime);
+        data.put(TrackingTable.COLUMN_TARGET_END_TIME,endTime);
+        data.put(TrackingTable.COLUMN_MEET_TIME,meetTime);
+        mDatabase.update(TrackingTable.TABLE_TRACKING,data,"id"+ "= ? ",new String[]{id});
+//        Cursor c = this.getAllTracking();
+
+        return  true;
+    }
+
     public void close(){
         DBHelper.getSingletonInstance(context).close();
     }

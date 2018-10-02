@@ -1,5 +1,6 @@
 package com.example.pan.assignment1.view.fragments;
 
+import android.content.Context;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,22 +19,30 @@ import com.example.pan.assignment1.service.TrackingService;
 public class TrackingList extends AppCompatActivity {
 
     private TrackingSource ts;
-
+    private static TrackingListAdapter adapter;
+    private static Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tracking_list);
-
+        context = this;
         ts = new TrackingSource(this);
         ts.execute();
 
         init();
     }
 
+    public static Context getContext(){
+        return context;
+    }
+
+    public static TrackingListAdapter getAdapter(){
+        return adapter;
+    }
     private void init(){
         RecyclerView rv;
         RecyclerView.LayoutManager layoutmanager;
-        RecyclerView.Adapter adapter;
+
 
 
         rv = findViewById(R.id.recycleView);
@@ -45,7 +54,9 @@ public class TrackingList extends AppCompatActivity {
 
         Cursor c = ts.getAllTracking();
         adapter = new TrackingListAdapter(this, c,ts); // TrackingManager.getTrackingList()
-
+//        adapter.swapCursor(c);
         rv.setAdapter(adapter);
     }
+
+
 }

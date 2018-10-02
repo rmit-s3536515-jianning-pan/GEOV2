@@ -15,6 +15,7 @@ public class onTrackingItemClickedListener implements View.OnClickListener {
     private String trackingId;
     private int trackableId;
     private String meet;
+//    private TrackingListAdapter adapter;
     public onTrackingItemClickedListener(Context context, String title, String st, String et,int trackableId,String trackingId,String meet) {
         this.context = context;
         this.title = title;
@@ -23,7 +24,7 @@ public class onTrackingItemClickedListener implements View.OnClickListener {
         this.trackingId = trackingId;
         this.trackableId = trackableId;
         this.meet = meet;
-
+//    this.adapter = adapter;
     }
 
     @Override
@@ -35,6 +36,7 @@ public class onTrackingItemClickedListener implements View.OnClickListener {
         intent.putExtra(TrackingListAdapter.ID,Integer.toString(trackableId));
         intent.putExtra(TrackingListAdapter.meet,meet);
         intent.putExtra(TrackingListAdapter.TID,trackingId);
+//        intent.putExtra("adapter",adapter);
         context.startActivity(intent);
     }
 }

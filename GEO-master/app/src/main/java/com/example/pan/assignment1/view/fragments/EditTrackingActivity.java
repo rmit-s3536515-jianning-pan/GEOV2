@@ -21,6 +21,7 @@ import com.example.pan.assignment1.controller.OnEditViewMeetTimeSpinner;
 import com.example.pan.assignment1.controller.OnItemSelectedToChangeEndTime;
 import com.example.pan.assignment1.controller.onEditViewStartTimeSpinner;
 import com.example.pan.assignment1.controller.onTextChangedListener;
+import com.example.pan.assignment1.database.TrackingSource;
 import com.example.pan.assignment1.model.tracking.Tracking;
 import com.example.pan.assignment1.model.tracking.TrackingManager;
 
@@ -34,10 +35,16 @@ public class EditTrackingActivity extends AppCompatActivity {
     private EditText endtime;
     private Spinner meetTime;
     private onTextChangedListener tw;
+
+    private TrackingSource ts;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_tracking); //use the add tracking layout instead of "activity_edit_tracking"
+
+        ts = new TrackingSource(this);
+        ts.execute();
+
 
         init();
     }
@@ -96,7 +103,7 @@ public class EditTrackingActivity extends AppCompatActivity {
 //        meetTime.setSelection(spinneradapter.getPosition(meet));
 //        meetTime.setOnItemSelectedListener(new OnEditViewMeetTimeSpinner(tId));
 
-        btn.setOnClickListener(new OnEditTrackingButtonClickedListener(this,trackingId,text,startTime,endtime, meetTime));
+        btn.setOnClickListener(new OnEditTrackingButtonClickedListener(this,trackingId,text,startTime,endtime, meetTime,ts));
     }
 
 

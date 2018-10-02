@@ -32,7 +32,7 @@ public class OnLongClickToRemoveItem implements View.OnLongClickListener {
             System.out.println("Tracking is Deleted");
             Cursor c = ts.getAllTracking();
             adapter.swapCursor(c);
-
+            adapter.notifyDataSetChanged();
 
         }
         else{
