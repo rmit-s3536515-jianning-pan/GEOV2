@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:background="@color/icons1"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="16dp"
+        android:text="@string/trackableName"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:text="@string/category"
+        android:textColor="@color/colorAccent"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:text="@string/description"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/url"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:paddingLeft="16dp"
+        android:text="@string/url"
+        android:textColor="@color/colorAccent"
+        android:textSize="24sp" />
+
+</LinearLayout>

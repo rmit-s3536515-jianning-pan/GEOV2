@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.fragments.AddTracking">
+
+    <TextView
+        android:id="@+id/trackingName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/trackingName"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/trackingNameField"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/trackingNameField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="@string/trackingField"
+        android:inputType="textPersonName"
+        android:text=""
+        app:layout_constraintBaseline_toBaselineOf="@+id/trackingName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/trackingName" />
+
+    <TextView
+        android:id="@+id/startText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/trackingTargetStartTime"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/startTime"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/trackingName" />
+
+    <TextView
+        android:id="@+id/endText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/trackingTargetEndTime"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/endTime"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/startText" />
+
+    <Spinner
+        android:id="@+id/startTime"
+        android:layout_width="214dp"
+        android:layout_height="25dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/startText"
+        app:layout_constraintEnd_toEndOf="@+id/trackingNameField" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="362dp" />
+
+    <Button
+        android:id="@+id/addBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:text="@string/addButton"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/meetTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="36dp"
+        android:text="Meet Time :"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/meetTimeSpinner"
+        app:layout_constraintHorizontal_bias="0.824"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/endText" />
+
+    <Spinner
+        android:id="@+id/meetTimeSpinner"
+        android:layout_width="212dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBaseline_toBaselineOf="@+id/meetTime"
+        app:layout_constraintEnd_toEndOf="@+id/trackingNameField" />
+
+    <EditText
+        android:id="@+id/endTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="none|textPersonName"
+        android:text="Name"
+        app:layout_constraintBaseline_toBaselineOf="@+id/endText"
+        app:layout_constraintEnd_toEndOf="@+id/trackingNameField" />
+
+</android.support.constraint.ConstraintLayout>
