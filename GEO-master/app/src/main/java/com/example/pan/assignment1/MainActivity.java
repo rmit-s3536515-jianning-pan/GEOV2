@@ -56,9 +56,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
 //        ts.deleteAll();
-        ts.close();
-
-        context.deleteDatabase(DBHelper.DB_FILE_NAME);
+//        ts.close();
+//
+//        context.deleteDatabase(DBHelper.DB_FILE_NAME);
     }
 
     public static Context getContext(){ //pass the reference of context to TrackableManager, so it can read the file
@@ -80,8 +80,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
 
-                default:
-                    return super.onOptionsItemSelected(item);
+            default:
+                return super.onOptionsItemSelected(item);
         }
 
     }

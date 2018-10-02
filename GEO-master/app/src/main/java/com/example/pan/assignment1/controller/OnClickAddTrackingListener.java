@@ -64,7 +64,7 @@ public class OnClickAddTrackingListener implements OnClickListener{
                 else{
                     System.out.println("Tracking is not inserted");
                 }
-                ts.close();
+//                ts.close();
 
             } catch (ParseException e) {
                 e.printStackTrace();
