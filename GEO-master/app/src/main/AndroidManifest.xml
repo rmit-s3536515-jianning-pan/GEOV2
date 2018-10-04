@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.pan.assignment1">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
     <application
         android:allowBackup="true"
@@ -24,9 +28,19 @@
             android:parentActivityName=".MainActivity" />
         <activity
             android:name=".view.fragments.TrackingList"
-            android:parentActivityName=".MainActivity"
-            android:label="Display Tracking List"/>
-        <activity android:name=".view.fragments.EditTrackingActivity" android:label="Editing Tracking" android:parentActivityName=".view.fragments.TrackingList"></activity>
+            android:label="Display Tracking List"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".view.fragments.EditTrackingActivity"
+            android:label="Editing Tracking"
+            android:parentActivityName=".view.fragments.TrackingList" />
+
+        <service
+            android:name=".service.MyJobService"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            ></service>
     </application>
 
 </manifest>

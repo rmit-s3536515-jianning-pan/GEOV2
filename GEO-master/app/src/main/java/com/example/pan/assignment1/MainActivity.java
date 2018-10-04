@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
 //        ts.deleteAll();
-//        ts.close();
+        ts.close();
 //
 //        context.deleteDatabase(DBHelper.DB_FILE_NAME);
     }
