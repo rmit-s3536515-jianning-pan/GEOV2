@@ -1,8 +1,12 @@
 package com.example.pan.assignment1;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.provider.Settings;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -22,11 +26,13 @@ import com.example.pan.assignment1.adapter.TrackableListAdapter;
 import com.example.pan.assignment1.database.DBHelper;
 import com.example.pan.assignment1.database.TrackableSource;
 import com.example.pan.assignment1.model.trackable.TrackableManager;
+import com.example.pan.assignment1.service.SuggestionService;
 import com.example.pan.assignment1.view.fragments.TrackingList;
 
 
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,6 +45,9 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView.LayoutManager layoutmanager;
 
     private TrackableSource ts;
+
+    private AlarmManager alarmgr;
+    private PendingIntent alarmIntent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
         ts.execute();
         setRecycleView();
         setSpinnerView();
+
+        setAlarm();
     }
 
     @Override
@@ -61,9 +72,19 @@ public class MainActivity extends AppCompatActivity {
 //        context.deleteDatabase(DBHelper.DB_FILE_NAME);
     }
 
+    public void setAlarm(){
+       alarmgr = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
+       Intent i = new Intent(this, SuggestionService.class);
+       alarmIntent = PendingIntent.getService(this,0,i,0);
+
+//       alarmgr.setRepeating(AlarmManager.RTC_WAKEUP, 1000,5000,alarmIntent);
+       alarmgr.setExact(AlarmManager.RTC_WAKEUP,1000,alarmIntent);
+    }
+
     public static Context getContext(){ //pass the reference of context to TrackableManager, so it can read the file
         return context;
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
